@@ -1,0 +1,31 @@
+{
+  "name": "symbol-mcp-server",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "MCP server for Symbol blockchain API",
+  "scripts": {
+    "check": "biome check src/",
+    "autofix": "npm run check -- --fix",
+    "autofix:unsafe": "npm run check -- --fix --unsafe",
+    "start": "tsx src/index.ts",
+    "build": "tsc",
+    "dev": "tsx watch src/index.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "generate:client:desc": "openapi-zod-client https://symbol.github.io/symbol-openapi/v1.0.4/openapi3.yml --with-alias --with-description --base-url https://sym-test-01.opening-line.jp:3001 --output src/symbol-rest-client.ts",
+    "generate:client": "openapi-zod-client https://symbol.github.io/symbol-openapi/v1.0.4/openapi3.yml --with-alias --base-url https://sym-test-01.opening-line.jp:3001 --output src/symbol-rest-client.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.7.0",
+    "symbol-sdk": "^3.2.3",
+    "tsx": "^4.19.3",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/node": "^22.13.11",
+    "openapi-zod-client": "^1.18.3",
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.9"
+  }
+}
